@@ -21,7 +21,10 @@ class ViewController: UIViewController {
         switch currentDrawType {
         case 0:
             drawRectangle()
-            
+        case 1:
+            drawCircle()
+        case 2:
+            drawCheckerboard()
         default:
             break
         }
@@ -52,6 +55,50 @@ class ViewController: UIViewController {
         
         CGContextAddRect(context, rectangle)
         CGContextDrawPath(context, kCGPathFillStroke)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        imageView.image = img
+    }
+    
+    func drawCircle() {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 512, height: 512), false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        let rectangle = CGRect(x: 5, y: 5, width: 502, height: 502)
+        CGContextSetFillColorWithColor(context, UIColor.redColor().CGColor)
+        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
+        CGContextSetLineWidth(context, 10)
+        
+        CGContextAddEllipseInRect(context, rectangle)
+        CGContextDrawPath(context, kCGPathFillStroke)
+        
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        imageView.image = img
+    }
+    
+    func drawCheckerboard() {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 512, height: 512), false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        
+        CGContextSetFillColorWithColor(context, UIColor.blackColor().CGColor)
+        
+        for row in 0 ..< 8 {
+            for col in 0 ..< 8 {
+                if row % 2 == 0 {
+                    if col % 2 == 0 {
+                        CGContextFillRect(context, CGRect(x: col * 64, y: row * 64, width: 64, height: 64))
+                    }
+                } else {
+                    if col % 2 == 1 {
+                        CGContextFillRect(context, CGRect(x: col * 64, y: row * 64, width: 64, height: 64))
+                    }
+                }
+                
+            }
+        }
+        
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
