@@ -13,6 +13,8 @@
 		CAB022F51BA7AB7300760761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB022F41BA7AB7300760761 /* Images.xcassets */; };
 		CAB022F81BA7AB7300760761 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAB022F61BA7AB7300760761 /* LaunchScreen.xib */; };
 		CAB023041BA7AB7300760761 /* Core_GraphicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB023031BA7AB7300760761 /* Core_GraphicsTests.swift */; };
+		CAB0230F1BA7ABA000760761 /* mouse.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB0230D1BA7ABA000760761 /* mouse.png */; };
+		CAB023101BA7ABA000760761 /* mouse@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB0230E1BA7ABA000760761 /* mouse@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		CAB022FD1BA7AB7300760761 /* Core GraphicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Core GraphicsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB023021BA7AB7300760761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAB023031BA7AB7300760761 /* Core_GraphicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core_GraphicsTests.swift; sourceTree = "<group>"; };
+		CAB0230D1BA7ABA000760761 /* mouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mouse.png; sourceTree = "<group>"; };
+		CAB0230E1BA7ABA000760761 /* mouse@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mouse@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 		CAB022EB1BA7AB7300760761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CAB0230D1BA7ABA000760761 /* mouse.png */,
+				CAB0230E1BA7ABA000760761 /* mouse@2x.png */,
 				CAB022EC1BA7AB7300760761 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -192,7 +198,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAB023101BA7ABA000760761 /* mouse@2x.png in Resources */,
 				CAB022F31BA7AB7300760761 /* Main.storyboard in Resources */,
+				CAB0230F1BA7ABA000760761 /* mouse.png in Resources */,
 				CAB022F81BA7AB7300760761 /* LaunchScreen.xib in Resources */,
 				CAB022F51BA7AB7300760761 /* Images.xcassets in Resources */,
 			);
