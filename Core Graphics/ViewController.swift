@@ -25,6 +25,10 @@ class ViewController: UIViewController {
             drawCircle()
         case 2:
             drawCheckerboard()
+        case 3:
+            drawRotatedSquares()
+        case 4:
+            drawLines()
         default:
             break
         }
@@ -98,6 +102,58 @@ class ViewController: UIViewController {
                 
             }
         }
+        
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        imageView.image = img
+    }
+    
+    func drawRotatedSquares() {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 512, height: 512), false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        CGContextTranslateCTM(context, 256, 256)
+        
+        let rotations = 16
+        let amount = M_PI_2 / Double(rotations)
+        
+        for i in 0 ..< rotations {
+            CGContextRotateCTM(context, CGFloat(amount))
+            CGContextAddRect(context, CGRect(x: -128, y: -128, width: 256, height: 256))
+        }
+        
+        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
+        CGContextStrokePath(context)
+        
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        imageView.image = img
+    }
+    
+    func drawLines() {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 512, height: 512), false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        CGContextTranslateCTM(context, 256, 256)
+        
+        var first = true
+        var length: CGFloat = 256
+        
+        for i in 0 ..< 256 {
+            CGContextRotateCTM(context, CGFloat(M_PI_2))
+            
+            if first {
+                CGContextMoveToPoint(context, length, 50)
+                first = false
+            } else {
+                CGContextAddLineToPoint(context, length, 50)
+            }
+            
+            length *= 0.99
+        }
+        
+        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
+        CGContextStrokePath(context)
         
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
